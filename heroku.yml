@@ -1,0 +1,5 @@
+build:
+  docker:
+      worker: /pinky/Dockerfile
+run:
+   worker: npm start
