@@ -1,6 +1,7 @@
 const Asena = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
 const config = require('../config');
+const Config = require('../config');
 let help = require('../Baileys/data/Helperes');
 //============================== LYRICS =============================================
 const fs = require('fs');
@@ -16,7 +17,7 @@ const Lang = Language.getString('scrapers');
 //=====================================================================================
 
 
-Julie.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (async (message, match) => { 
+Asena.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (async (message, match) => { 
 
         if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text);    
         let arama = await yts(match[1]);
