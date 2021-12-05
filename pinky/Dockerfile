@@ -1,6 +1,6 @@
 FROM quay.io/lyfe00011/test:beta
 
-RUN git clone https://github.com/AiDarkEzio/PINKY_BOT-V10.git /root/WhatsAsenaDuplicated
+RUN git clone https://github.com/zeqanpx/Queen_Jennifer.git /root/WhatsAsenaDuplicated
 WORKDIR /root/WhatsAsenaDuplicated/
 RUN yarn install --no-audit
 RUN git clone https://github.com/AiDarkEzio/medias.git
