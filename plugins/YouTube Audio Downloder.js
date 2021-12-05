@@ -3,7 +3,7 @@ const {MessageType,Mimetype} = require('@adiwajshing/baileys');
 const config = require('../config');
 const Config = require('../config');
 let onf = require('../Baileys/data/Configs');
-let help = require(onf.HELP_SUPPORT6);
+let help = require('../Baileys/data/Helperes');
 //============================== LYRICS =============================================
 const fs = require('fs');
 const ytdl = require('ytdl-core');
