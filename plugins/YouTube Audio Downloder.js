@@ -2,7 +2,8 @@ const Asena = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
 const config = require('../config');
 const Config = require('../config');
-let help = require('../Baileys/data/Helperes');
+let onf = require('../Baileys/data/Configs');
+let help = require(onf.HELP_SUPPORT6);
 //============================== LYRICS =============================================
 const fs = require('fs');
 const ytdl = require('ytdl-core');
@@ -26,9 +27,14 @@ Asena.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (a
         var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_SONG,MessageType.text);
 
         let title = arama[0].title.replace(' ', '+');
-        let stream = ytdl(arama[0].videoId, {
-            quality: 'highestaudio',
-        });
+        let stream = ytdl(arama[0].videoId, {quality: 'highestaudio'});
+
+        let name = arama[0].title
+        let url = arama[0].url
+        let time = arama[0].timestamp
+        let ago = arama[0].ago
+        let views = arama[0].views
+        let cname = arama[0].author.name
     
         got.stream(arama[0].image).pipe(fs.createWriteStream(title + '.jpg'));
         ffmpeg(stream)
@@ -45,8 +51,10 @@ Asena.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (a
                     });
                 writer.addTag();
 
-                reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text);
-                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, quoted: message.data, ptt: false});
+                reply = await message.client.sendMessage(message.jid, fs.readFileSync('./' + title + '.jpg'), MessageType.image, {caption: help.songsender(name,url,time,ago,views,cname) });
+                await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text);
+                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.document, {filename: title + '.mp3', mimetype: 'audio/mpeg', contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, ptt: false});
             });
     }));
 
