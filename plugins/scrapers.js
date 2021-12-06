@@ -505,25 +505,25 @@ if (config.WORKTYPE == 'private') {
         });
     }));
 
-    Julie.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async (message, match) => { 
+    // Julie.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async (message, match) => { 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);    
-        var reply = await message.client.sendMessage(message.jid,Lang.GETTING_VIDEOS,MessageType.text);
+    //     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text);    
+    //     var reply = await message.client.sendMessage(message.jid,Lang.GETTING_VIDEOS,MessageType.text);
 
-        try {
-            var arama = await yts(match[1]);
-        } catch {
-            return await message.client.sendMessage(message.jid,Lang.NOT_FOUND,MessageType.text);
-        }
+    //     try {
+    //         var arama = await yts(match[1]);
+    //     } catch {
+    //         return await message.client.sendMessage(message.jid,Lang.NOT_FOUND,MessageType.text);
+    //     }
     
-        var mesaj = '';
-        arama.all.map((video) => {
-            mesaj += '*' + video.title + '* - ' + video.url + '\n'
-        });
+    //     var mesaj = '';
+    //     arama.all.map((video) => {
+    //         mesaj += '*' + video.title + '* - ' + video.url + '\n'
+    //     });
 
-        await message.client.sendMessage(message.jid,mesaj,MessageType.text);
-        await reply.delete();
-    }));
+    //     await message.client.sendMessage(message.jid,mesaj,MessageType.text);
+    //     await reply.delete();
+    // }));
 
     Julie.addCommand({pattern: 'wiki ?(.*)', fromMe: true, desc: Lang.WIKI_DESC}, (async (message, match) => { 
 
