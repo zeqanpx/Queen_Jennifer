@@ -41,9 +41,9 @@ AiDarkEzio.addCommand({pattern: 'git', fromMe: false, desc: "*Gives Ouner Dtls*"
 
     // send a buttons message!
     const buttons = [
-        {buttonId: 'id1', buttonText: {displayText: ''}, type: 2},
-        {buttonId: 'id2', buttonText: {displayText: 'Button 2'}, type: 2},
-        {buttonId: 'id2', buttonText: {displayText: 'Button 2'}, type: 1}
+        {buttonId: 'id1', buttonText: {displayText: '######'}, type: 1},
+        {buttonId: 'id2', buttonText: {displayText: '@@@@@@'}, type: 1},
+        {buttonId: 'id3', buttonText: {displayText: '$$$$$$'}, type: 1}
     ]
     const buttonMessage = {
         contentText: "Hi it's button message\nWhat Do U Think My Owner",
