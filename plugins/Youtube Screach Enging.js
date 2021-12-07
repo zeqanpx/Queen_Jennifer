@@ -69,7 +69,7 @@ if (config.WORKTYPE == 'public') {
             mesaj += 'Title: *_' + video.title + '_*\nLink: ```' + video.url + '```\n\n'
         });
 
-        var r_text = "https://images.wallpaperscraft.com/image/face_surprise_emotions_141979_1350x2400.jpg";
+        var r_text = "https://github.com/AiDarkEzio/media/blob/main/img/YT-SC-BX.jpg.png";
      
         var respoimage = await axios.get(`${r_text}`, { responseType: 'arraybuffer' })
         await message.client.sendMessage(message.jid, Buffer(respoimage.data), MessageType.image, MessageType.image, {caption: Her.BOT + '\n\n' + mesaj });
@@ -95,7 +95,7 @@ Julie.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async
     });
 
 
-    var r_text = "https://images.wallpaperscraft.com/image/face_surprise_emotions_141979_1350x2400.jpg";
+    var r_text = "https://github.com/AiDarkEzio/media/blob/main/img/YT-SC-BX.jpg.png";
      
     var respoimage = await axios.get(`${r_text}`, { responseType: 'arraybuffer' })
     await message.client.sendMessage(message.jid, Buffer(respoimage.data), MessageType.image, MessageType.image, {caption: Her.BOT + '\n\n' + mesaj });
