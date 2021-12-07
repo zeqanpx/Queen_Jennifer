@@ -28,19 +28,19 @@ function infoMessage(msg) {
 
 function songsender(name,url,RTime,UTime,Viws,cName) {
 
-`=====================
+  return `=====================
 
 »» ♪ *Name* : ${name}
 
 »» 💌 *Link* : ${url}
 
-»» 🕕 *Running Time* : ${RTime}
+»» 🕕 *Running Time* : _${RTime}_
 
-»» ♻️ *Uploade Date* : ${UTime}
+»» ♻️ *Uploade Date* : _${UTime}_
 
-»» 👩‍💻 *Views* : ${Viws}
+»» 👩‍💻 *Views* : _${Viws}_
 
-»» 🆔 *Chanel name* : ${cName}
+»» 🆔 *Chanel name* : _${cName}_
 
 =====================
 
@@ -54,7 +54,6 @@ function songsender(name,url,RTime,UTime,Viws,cName) {
 =====================
 `
 
-    return 
 }
 
 module.exports = {

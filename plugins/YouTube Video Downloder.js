@@ -56,19 +56,19 @@ var dlang_similarity = ''
 var dlang_other = ''
 var dlang_input = ''
 
-Julie.addCommand({pattern: 'video ?(.*)', fromMe: false, desc: Lang.VIDEO_DESC}, (async (message, match) => { 
+Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, (async (message, match) => { 
 
     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text);
 
     let arama = await yts(match[1]);
-    let videoa = arama.videos;
+    let poshiya = await yts(match[1]);
 
-    let name = videoa[0].title
-    let url = videoa[0].url
-    let time = videoa[0].timestamp
-    let ago = videoa[0].ago
-    let views = videoa[0].views
-    let cname = videoa[0].author.name
+    let name = poshiya.videos[0].title
+    let url = poshiya.videos[0].url
+    let time = poshiya.videos[0].timestamp
+    let ago = poshiya.videos[0].ago
+    let views = poshiya.videos[0].views
+    let cname = poshiya.videos[0].author.name
 
     var VID = '';
     try {
@@ -100,7 +100,7 @@ Julie.addCommand({pattern: 'video ?(.*)', fromMe: false, desc: Lang.VIDEO_DESC},
 
     yt.on('end', async () => {
         reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_VIDEO,MessageType.text);
-        await message.client.sendMessage(message.jid,help.songsender(name,url,time,ago,views,cname),MessageType.text);
+        await message.client.sendMessage(message.jid,'help',MessageType.text);
         await message.client.sendMessage(message.jid,fs.readFileSync('./' + VID + '.mp4'), MessageType.video, {mimetype: Mimetype.mp4});
     });
 }));
