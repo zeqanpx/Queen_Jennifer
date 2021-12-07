@@ -34,13 +34,13 @@ This is a Userbot based on WhatsAsena written by [Yusuf Usta](https://github.com
 
 - [![Wiki](https://img.shields.io/badge/plugins-blue?style=for-the-badge&logo=appveyor%22)](https://github.com/lyfe00011/whatsapp-bot/wiki/)
 
-- [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Amal-ser&repo=Amalser&theme=nightowl)](https://github.com/Amal-ser/Amalser)
+- [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=zeqanpx&repo=Queen_Jennifer&theme=midnight-purple)](https://github.com/zeqanpx/Queen_Jennifer)<!-- nightowl -->
 
 ### Simple Method
 
 - [![Run on Repl.it](https://repl.it/badge/github/Quiec/whatsasena)](https://repl.it/@Quiec/whatsasena)
 
-- [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Quiec/WhatsAsena)
+- [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/zeqanpx/Queen_Jennifer-public)
 
 ## Active Commands
 

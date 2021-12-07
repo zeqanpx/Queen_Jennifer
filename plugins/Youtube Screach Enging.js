@@ -5,24 +5,10 @@ const config = require('../config');
 const LanguageDetect = require('languagedetect');
 const lngDetector = new LanguageDetect();
 const Her = require('./sql/data/Configs');
-const Heroku = require('heroku-client');
-const heroku = new Heroku({
-    token: config.HEROKU.API_KEY
-});
-let baseURI = '/apps/' + config.HEROKU.APP_NAME;
-//============================== LYRICS =============================================
 const axios = require('axios');
-const { requestLyricsFor, requestAuthorFor, requestTitleFor, requestIconFor } = require("solenolyrics");
-const solenolyrics= require("solenolyrics"); 
-//============================== CURRENCY =============================================
-const { exchangeRates } = require('exchange-rates-api');
-const ExchangeRatesError = require('exchange-rates-api/src/exchange-rates-error.js')
-//============================== TTS ==================================================
+
 const fs = require('fs');
 const https = require('https');
-const googleTTS = require('google-translate-tts');
-//=====================================================================================
-//============================== YOUTUBE ==============================================
 const ytdl = require('ytdl-core');
 const ffmpeg = require('fluent-ffmpeg');
 const yts = require( 'yt-search' )
@@ -69,9 +55,9 @@ if (config.WORKTYPE == 'public') {
             mesaj += 'Title: *_' + video.title + '_*\nLink: ```' + video.url + '```\n\n'
         });
 
-        var r_text = "https://github.com/AiDarkEzio/media/blob/main/img/YT-SC-BX.jpg.png";
+        await message.client.sendMessage(message.jid, mesaj, MessageType.text);
      
-        var respoimage = await axios.get(`${r_text}`, { responseType: 'arraybuffer' })
+        var respoimage = await axios.get(`https://github.com/AiDarkEzio/media/blob/main/img/YT-SC-BX.jpg.png`, { responseType: 'arraybuffer' })
         await message.client.sendMessage(message.jid, Buffer(respoimage.data), MessageType.image, MessageType.image, {caption: Her.BOT + '\n\n' + mesaj });
         await reply.delete();
     }));
@@ -94,10 +80,9 @@ Julie.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async
         mesaj += 'Title: *_' + video.title + '_*\nLink: ```' + video.url + '```\n\n'
     });
 
-
-    var r_text = "https://github.com/AiDarkEzio/media/blob/main/img/YT-SC-BX.jpg.png";
+    await message.client.sendMessage(message.jid, mesaj, MessageType.text);
      
-    var respoimage = await axios.get(`${r_text}`, { responseType: 'arraybuffer' })
+    var respoimage = await axios.get(`https://github.com/AiDarkEzio/media/blob/main/img/YT-SC-BX.jpg.png`, { responseType: 'arraybuffer' })
     await message.client.sendMessage(message.jid, Buffer(respoimage.data), MessageType.image, MessageType.image, {caption: Her.BOT + '\n\n' + mesaj });
     await reply.delete();
 }));
