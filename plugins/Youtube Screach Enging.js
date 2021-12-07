@@ -56,9 +56,6 @@ if (config.WORKTYPE == 'public') {
         });
 
         await message.client.sendMessage(message.jid, mesaj, MessageType.text);
-     
-        var respoimage = await axios.get(`https://github.com/AiDarkEzio/media/blob/main/img/YT-SC-BX.jpg.png`, { responseType: 'arraybuffer' })
-        await message.client.sendMessage(message.jid, Buffer(respoimage.data), MessageType.image, MessageType.image, {caption: Her.BOT + '\n\n' + mesaj });
         await reply.delete();
     }));
 
@@ -81,8 +78,5 @@ Julie.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async
     });
 
     await message.client.sendMessage(message.jid, mesaj, MessageType.text);
-     
-    var respoimage = await axios.get(`https://github.com/AiDarkEzio/media/blob/main/img/YT-SC-BX.jpg.png`, { responseType: 'arraybuffer' })
-    await message.client.sendMessage(message.jid, Buffer(respoimage.data), MessageType.image, MessageType.image, {caption: Her.BOT + '\n\n' + mesaj });
     await reply.delete();
 }));
