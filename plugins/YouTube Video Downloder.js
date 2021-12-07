@@ -58,17 +58,7 @@ var dlang_input = ''
 
 Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, (async (message, match) => { 
 
-    if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text);
-
-    let arama = await yts(match[1]);
-    let poshiya = await yts(match[1]);
-
-    let name = poshiya.videos[0].title
-    let url = poshiya.videos[0].url
-    let time = poshiya.videos[0].timestamp
-    let ago = poshiya.videos[0].ago
-    let views = poshiya.videos[0].views
-    let cname = poshiya.videos[0].author.name
+    if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text);    
 
     var VID = '';
     try {
@@ -100,7 +90,6 @@ Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, 
 
     yt.on('end', async () => {
         reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_VIDEO,MessageType.text);
-        await message.client.sendMessage(message.jid,'help',MessageType.text);
         await message.client.sendMessage(message.jid,fs.readFileSync('./' + VID + '.mp4'), MessageType.video, {mimetype: Mimetype.mp4});
     });
 }));

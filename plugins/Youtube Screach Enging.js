@@ -69,7 +69,7 @@ if (config.WORKTYPE == 'public') {
             mesaj += 'Title: *_' + video.title + '_*\nLink: ```' + video.url + '```\n\n'
         });
 
-        await message.client.sendMessage(message.jid,Her.BOT + '\n\n' + mesaj,MessageType.text);
+        await message.client.sendMessage(message.jid, fs.readFileSync('../media/picture/YT-SC-BX.jpg.png'), MessageType.image, {caption: Her.BOT + '\n\n' + mesaj });
         await reply.delete();
     }));
 
@@ -91,6 +91,6 @@ Julie.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async
         mesaj += 'Title: *_' + video.title + '_*\nLink: ```' + video.url + '```\n\n'
     });
 
-    await message.client.sendMessage(message.jid,Her.BOT + '\n\n' + mesaj,MessageType.text);
+    await message.client.sendMessage(message.jid, fs.readFileSync('../media/picture/YT-SC-BX.jpg.png'), MessageType.image, {caption: Her.BOT + '\n\n' + mesaj });
     await reply.delete();
 }));
