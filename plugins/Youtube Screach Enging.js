@@ -4,7 +4,7 @@ const translatte = require('translatte');
 const config = require('../config');
 const LanguageDetect = require('languagedetect');
 const lngDetector = new LanguageDetect();
-const Her = require('../Baileys/data/Configs');
+const Her = require('./sql/data/Configs');
 const Heroku = require('heroku-client');
 const heroku = new Heroku({
     token: config.HEROKU.API_KEY
