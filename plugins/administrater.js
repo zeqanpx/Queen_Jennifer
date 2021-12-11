@@ -1,4 +1,4 @@
-const {MessageType, GroupSettingChange} = require('@adiwajshing/baileys');
+const {MessageType, GroupSettingChange,ChatModification} = require('@adiwajshing/baileys');
 const Julie = require('../events');
 const Config = require('../config');
 const CH_AD = require('./admin');
