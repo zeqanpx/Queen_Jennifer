@@ -8,61 +8,99 @@ const jul = Language.getString('julie');
 const mut = Language.getString('mute');
 const fs = require('fs');
 
-async function checkImAdmin(message, user = message.client.user.jid) {
-    var grup = await message.client.groupMetadata(message.jid);
-    var sonuc = grup['participants'].map((member) => {
+// async function checkImAdmin(message, user = message.client.user.jid) {
+//     var grup = await message.client.groupMetadata(message.jid);
+//     var sonuc = grup['participants'].map((member) => {
         
-        if (member.jid.split("@")[0] == user.split("@")[0] && member.isAdmin) return true; else; return false;
-    });
-    return sonuc.includes(true);
-}
+//         if (member.jid.split("@")[0] == user.split("@")[0] && member.isAdmin) return true; else; return false;
+//     });
+//     return sonuc.includes(true);
+// }
 
-Julie.addCommand({pattern: 'rens ?(.*)', onlyGroup: false, fromMe: true,desc: Julie}, (async (message, match) => {
+// ===============================================DEATLES============================================================================
 
-    if (match[1] === '') return await message.client.sendMessage(message.jid,'Code Exited',MessageType.text);
+Julie.addCommand({pattern: 'dtls ?(.*)', onlyGroup: false, fromMe: true,desc: 'Julie'}, (async (message, match) => {
 
-    let response = await message.client.sendMessage(message.jid,'group name changed to  ```' + match[1] + '```' ,MessageType.text);
-
-    await message.client.deleteMessage (jid, {id: response.messageID, remoteJid: message.jid, fromMe: true})
+    const let = await message.client.sendMessage(message.jid, "hi Bro" , MessageType.text)
+    await message.client.sendMessage(message.jid, let + '\n\n\n\n\n' + message , MessageType.text)
+    await message.client.sendMessage(message.jid, "hi Bros" , MessageType.text)
     
 }));
 
-Julie.addCommand({pattern: 'rens ?(.*)', onlyGroup: false, fromMe: true,desc: Julie}, (async (message, match) => {
+Julie.addCommand({pattern: 'get-status ?(.*)', onlyGroup: false, fromMe: true,desc: 'CHAT DEATLS'}, (async (message, match) => {
 
-    if (match[1] === '') return await message.client.sendMessage(message.jid,'Code Exited',MessageType.text);
-
-    let response = await message.client.sendMessage(message.jid,'group name changed to  ```' + match[1] + '```' ,MessageType.text);
-
-    await message.client.deleteMessage (jid, {id: response.messageID, remoteJid: message.jid, fromMe: true})
+    await message.client.sendMessage(message.jid,'Wait',MessageType.text);
+    
+    const status = await conn.getStatus (message.jid) // leave empty to get your own status
+    
+    await message.client.sendMessage(message.jid,"status: " + status,MessageType.text);
     
 }));
 
-Julie.addCommand({pattern: 'rens ?(.*)', onlyGroup: false, fromMe: true,desc: Julie}, (async (message, match) => {
+// ===============================================PIN============================================================================
 
-    if (match[1] === '') return await message.client.sendMessage(message.jid,'Code Exited',MessageType.text);
+Julie.addCommand({pattern: 'pinte ?(.*)', onlyGroup: false, fromMe: true,desc: 'CHAT PINTED'}, (async (message, match) => {
 
-    let response = await message.client.sendMessage(message.jid,'group name changed to  ```' + match[1] + '```' ,MessageType.text);
+    await message.client.sendMessage(message.jid,'Wait',MessageType.text);
+    
+    await message.client.modifyChat (message.jid, ChatModification.pin) // pin the chat
+    
+    await message.client.sendMessage(message.jid,'CHAT PINTED',MessageType.text);
 
-    await message.client.deleteMessage (jid, {id: response.messageID, remoteJid: message.jid, fromMe: true})
+}));
+
+
+Julie.addCommand({pattern: 'unpinte ?(.*)', onlyGroup: false, fromMe: true,desc: 'CHAT UNPINTED'}, (async (message, match) => {
+
+    await message.client.sendMessage(message.jid,'Wait',MessageType.text);
+    
+    await message.client.modifyChat (message.jid, ChatModification.unpin)
+    
+    await message.client.sendMessage(message.jid,'CHAT UNPINTED',MessageType.text);
     
 }));
 
-Julie.addCommand({pattern: 'rens ?(.*)', onlyGroup: false, fromMe: true,desc: Julie}, (async (message, match) => {
+// ===============================================ACIVE============================================================================
 
-    if (match[1] === '') return await message.client.sendMessage(message.jid,'Code Exited',MessageType.text);
+Julie.addCommand({pattern: 'achive ?(.*)', onlyGroup: false, fromMe: true,desc: 'CHAT ACHIVE'}, (async (message, match) => {
 
-    let response = await message.client.sendMessage(message.jid,'group name changed to  ```' + match[1] + '```' ,MessageType.text);
+    await message.client.sendMessage(message.jid,'Wait',MessageType.text);
+    
+    await message.client.modifyChat (message.jid, ChatModification.archive) // pin the chat
+    
+    await message.client.sendMessage(message.jid,'CHAT PINTED',MessageType.text);
 
-    await message.client.deleteMessage (jid, {id: response.messageID, remoteJid: message.jid, fromMe: true})
+}));
+
+Julie.addCommand({pattern: 'unachive ?(.*)', onlyGroup: false, fromMe: true,desc: 'CHAT UNACHIVE'}, (async (message, match) => {
+
+    await message.client.sendMessage(message.jid,'Wait',MessageType.text);
+    
+    await message.client.modifyChat (message.jid, ChatModification.unarchive)
+    
+    await message.client.sendMessage(message.jid,'CHAT UNACHIVE',MessageType.text);
     
 }));
 
-Julie.addCommand({pattern: 'rens ?(.*)', onlyGroup: false, fromMe: true,desc: Julie}, (async (message, match) => {
+// ===============================================BLOCK============================================================================
 
-    if (match[1] === '') return await message.client.sendMessage(message.jid,'Code Exited',MessageType.text);
+Julie.addCommand({pattern: 'block ?(.*)', onlyGroup: false, fromMe: true,desc: 'CHAT BLOCK'}, (async (message, match) => {
 
-    let response = await message.client.sendMessage(message.jid,'group name changed to  ```' + match[1] + '```' ,MessageType.text);
+    await message.client.sendMessage(message.jid,'Wait',MessageType.text);
+    
+    await message.client.blockUser (message.jid, "add") // Block user
+    
+    // await message.client.sendMessage(message.jid,'CHAT UNACHIVE',MessageType.text);
+    
+}));
 
-    await message.client.deleteMessage (jid, {id: response.messageID, remoteJid: message.jid, fromMe: true})
+
+Julie.addCommand({pattern: 'unblock ?(.*)', onlyGroup: false, fromMe: true,desc: 'CHAT UNBLOCK'}, (async (message, match) => {
+
+    await message.client.sendMessage(message.jid,'Wait',MessageType.text);
+    
+    await message.client.blockUser (message.jid, "remove") // Unblock user
+    
+    await message.client.sendMessage(message.jid,'CHAT UNBLOCKED',MessageType.text);
     
 }));
