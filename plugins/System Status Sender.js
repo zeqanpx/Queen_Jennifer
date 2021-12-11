@@ -107,6 +107,9 @@ if (Config.WORKTYPE == "public") {
             {buttonId: BUTTHANDLE + 'qaversion', buttonText: {displayText: B_M_D.VER }, type: 1},
             {buttonId: BUTTHANDLE + 'qasysstats', buttonText: {displayText: B_M_D.SYSDTXT }, type: 1}
         ]
+
+        let buttonMessages = buttons.selectedDisplayText
+
         const buttonMessage = {
             contentText: B_M_D.MSG,
             footerText: 'Queen Jennifer © ᴘᴜʙʟɪᴄ ᴇᴅɪᴛɪᴏɴ',
