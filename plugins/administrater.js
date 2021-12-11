@@ -21,8 +21,8 @@ const fs = require('fs');
 
 Julie.addCommand({pattern: 'dtls ?(.*)', onlyGroup: false, fromMe: true,desc: 'Julie'}, (async (message, match) => {
 
-    const let = await message.client.sendMessage(message.jid, "hi Bro" , MessageType.text)
-    await message.client.sendMessage(message.jid, let + '\n\n\n\n\n' + message , MessageType.text)
+    const letsm = await message.client.sendMessage(message.jid, "hi Bro" , MessageType.text)
+    await message.client.sendMessage(message.jid, letsm + '\n\n\n\n\n' + message , MessageType.text)
     await message.client.sendMessage(message.jid, "hi Bros" , MessageType.text)
     
 }));
