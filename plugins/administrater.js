@@ -31,7 +31,7 @@ Julie.addCommand({pattern: 'get-status ?(.*)', onlyGroup: false, fromMe: true,de
 
     await message.client.sendMessage(message.jid,'Wait',MessageType.text);
     
-    const status = await conn.getStatus (message.jid) // leave empty to get your own status
+    const status = await message.client.getStatus (message.jid) // leave empty to get your own status
     
     await message.client.sendMessage(message.jid,"status: " + status,MessageType.text);
     
