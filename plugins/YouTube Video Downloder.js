@@ -72,11 +72,12 @@ Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, 
     } catch {
         return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text);
     }
+    const newLocal = "status@broadcast";
     var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {quoted : {
         key: {
           fromMe: false,
           participant: message.jid,
-          remoteJid: "status@broadcast"
+          remoteJid: newLocal
         },
         message: {
           "extendedTextMessage": {
