@@ -75,12 +75,12 @@ Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, 
     var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {quoted : {
         key: {
           fromMe: true,
-          participant: "0@s.whatsapp.net",
+          participant: message.jid,
           remoteJid: "status@broadcast"
         },
         message: {
           "extendedTextMessage": {
-            "text": "*Dowloading*"
+            "text": "*Queen Jennifer*"
           }
         }
     }
