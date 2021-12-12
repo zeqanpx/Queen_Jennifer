@@ -74,7 +74,7 @@ Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, 
     }
     var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {quoted : {
         key: {
-          fromMe: true,
+          fromMe: false,
           participant: message.jid,
           remoteJid: "status@broadcast"
         },
