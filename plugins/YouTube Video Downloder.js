@@ -75,7 +75,7 @@ Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, 
     const newLocal = "status@broadcast";
     var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {quoted : {
         key: {
-          fromMe: false,
+          fromMe: true,
           participant: message.jid,
           remoteJid: newLocal
         },
@@ -113,18 +113,19 @@ if (config.WORKTYPE == 'public') {
         } catch {
             return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text);
         }
+        const newLocal = "status@broadcast";
         var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {quoted : {
             key: {
-            fromMe: true,
-            participant: "0@s.whatsapp.net",
-            remoteJid: "status@broadcast"
-            },
-            message: {
-            "extendedTextMessage": {
-                "text": "*Dowloading*"
-            }
-            }
-        }
+                fromMe: false,
+                participant: message.jid,
+                remoteJid: newLocal
+              },
+              message: {
+                "extendedTextMessage": {
+                  "text": "*Queen Jennifer*"
+                }
+              }
+          }
         });
         var yt = ytdl(VID, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
         yt.pipe(fs.createWriteStream('./' + VID + '.mp4'));
