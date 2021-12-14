@@ -48,7 +48,7 @@ const Clang = Language.getString('covid');
 
 const wiki = require('wikijs').default;
 var gis = require('g-i-s');
-
+const newLocal = "status@broadcast";
 var dlang_dsc = ''
 var closer_res = ''
 var dlang_lang = ''
