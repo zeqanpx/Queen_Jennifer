@@ -56,7 +56,7 @@ if (config.WORKTYPE == 'public') {
         });
 
         await message.client.sendMessage(message.jid, mesaj, MessageType.text);
-        await reply.delete();
+
     }));
 
 }
@@ -78,5 +78,5 @@ Julie.addCommand({pattern: 'yt ?(.*)', fromMe: true, desc: Lang.YT_DESC}, (async
     });
 
     await message.client.sendMessage(message.jid, mesaj, MessageType.text);
-    await reply.delete();
+
 }));

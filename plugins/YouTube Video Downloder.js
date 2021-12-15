@@ -76,21 +76,6 @@ Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, 
     } catch {
         return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text);
     }
-    let arama = await yts(VID);
-    let poshiya = await yts(VID);
-
-    let title = arama[0].title.replace(' ', '+');
-
-    got.stream(arama[0].image).pipe(fs.createWriteStream(title + '.jpg'));
-
-    var yt = ytdl(VID, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
-
-    let name = poshiya.videos[0].title
-    let url = poshiya.videos[0].url
-    let time = poshiya.videos[0].timestamp
-    let ago = poshiya.videos[0].ago
-    let views = poshiya.videos[0].views
-    let cname = poshiya.videos[0].author.name
 
     var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {quoted : {
         key: {
@@ -105,6 +90,9 @@ Julie.addCommand({pattern: 'video ?(.*)', fromMe: true, desc: Lang.VIDEO_DESC}, 
         }
     }
     });
+
+    var yt = ytdl(VID, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
+
     yt.pipe(fs.createWriteStream('./' + VID + '.mp4'));
 
     yt.on('end', async () => {
@@ -142,21 +130,6 @@ if (config.WORKTYPE == 'public') {
         } catch {
             return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text);
         }
-        let arama = await yts(VID);
-        let poshiya = await yts(VID);
-    
-        let title = arama[0].title.replace(' ', '+');
-    
-        got.stream(arama[0].image).pipe(fs.createWriteStream(title + '.jpg'));
-    
-        var yt = ytdl(VID, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
-    
-        let name = poshiya.videos[0].title
-        let url = poshiya.videos[0].url
-        let time = poshiya.videos[0].timestamp
-        let ago = poshiya.videos[0].ago
-        let views = poshiya.videos[0].views
-        let cname = poshiya.videos[0].author.name
     
         var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {quoted : {
             key: {
@@ -171,6 +144,9 @@ if (config.WORKTYPE == 'public') {
             }
         }
         });
+        
+        var yt = ytdl(VID, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
+    
         yt.pipe(fs.createWriteStream('./' + VID + '.mp4'));
     
         yt.on('end', async () => {

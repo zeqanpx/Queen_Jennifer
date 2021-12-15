@@ -37,7 +37,7 @@ Asena.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (a
     let views = poshiya.videos[0].views
     let cname = poshiya.videos[0].author.name
 
-    await message.client.sendMessage(message.jid,'*DOWNLOADING SONG*:\n'+ name + '',MessageType.text);
+    await message.client.sendMessage(message.jid,'*_DOWNLOADING SONG_*:\n\n'+ name + '',MessageType.text);
 
     ffmpeg(stream)
         .audioBitrate(320)
@@ -95,7 +95,7 @@ if (config.WORKTYPE == 'public') {
         let views = poshiya.videos[0].views
         let cname = poshiya.videos[0].author.name
 
-        await message.client.sendMessage(message.jid,'*DOWNLOADING SONG*:\n'+ name + '',MessageType.text);
+        await message.client.sendMessage(message.jid,'*_DOWNLOADING SONG_*:\n\n'+ name + '',MessageType.text);
 
         ffmpeg(stream)
             .audioBitrate(320)
