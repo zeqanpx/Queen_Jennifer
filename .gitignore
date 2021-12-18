@@ -107,3 +107,6 @@ session.asena
 package-lock.json
 .DS_Store
 config.env
+
+# dot add vs code file
+.vscode
