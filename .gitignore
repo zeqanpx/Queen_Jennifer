@@ -107,5 +107,3 @@ session.asena
 package-lock.json
 .DS_Store
 config.env
-
-media/
