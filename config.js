@@ -14,7 +14,7 @@ module.exports = {
     VERSION: 'v3.1.0',
     CHANNEL: 'https://t.me/remasterplugin',
     GANSTYLE: 'https://i.hizliresim.com/loUtAb.jpg',
-    SESSION: process.env.PINKY_SESSION === undefined ? '' : process.env.PINKY_SESSION,
+    SESSION: process.env.PINKY_SESSION === undefined ? 'PINKY_BOT-V10:;:eyJjbGllbnRJRCI6IkdqZ0JGVFpGRllRVlladFdMaFpDNVE9PSIsInNlcnZlclRva2VuIjoiMUBCaEk5NERYWWJYVFIyNnFuM2NOa01jUEhadm9FMVpSWkRJbDNsZy96bHB1NUhWblRSWlFicjI2TGNhNllCMkc0ZFcvWTA0aC9FSFlVdlE9PSIsImNsaWVudFRva2VuIjoid0R2ZnlpbVJxc25KRk5Vc1UyODFqZ2dMTHFxUTdWcFJQQ2VnRVBLL2dmQT0iLCJlbmNLZXkiOiJQeUErcTdZNjU3Z29ZbmwrWU9uNGZ2bHhZeFZqZ0J3RUFlWmZxYkZCWW5VPSIsIm1hY0tleSI6IjA3bU9Sdm9FV1l3Y2ZuOU1PbVZBdEk5VDZyNXZMYWZQRVVmL3lNc3dmTm89In0=' : process.env.PINKY_SESSION,
     LANG: process.env.LANGUAGE === undefined ? 'en' : process.env.LANGUAGE.toUpperCase(),
     ALIVEMSG: '\n ```I Am Alive !!!```\n\n```Type``` *.help* ```for commands```',
     BLOCKCHAT: process.env.BLOCK_CHAT === undefined ? false : process.env.BLOCK_CHAT,
@@ -58,12 +58,12 @@ module.exports = {
     BRANCH: 'master',
     HEROKU: {
         HEROKU: process.env.HEROKU === undefined ? false : convertToBool(process.env.HEROKU),
-        API_KEY: process.env.HEROKU_API_KEY === undefined ? '' : process.env.HEROKU_API_KEY,
+        API_KEY: process.env.HEROKU_API_KEY === undefined ? '5a28a571-1818-4dcc-a8ee-a9aad632f067' : process.env.HEROKU_API_KEY,
         APP_NAME: process.env.HEROKU_APP_NAME === undefined ? '' : process.env.HEROKU_APP_NAME
     },
     DATABASE_URL: DATABASE_URL,
     DATABASE: DATABASE_URL === './whatsasena.db' ? new Sequelize({ dialect: "sqlite", storage: DATABASE_URL, logging: DEBUG }) : new Sequelize(DATABASE_URL, { dialectOptions: { ssl: { require: true, rejectUnauthorized: false } }, logging: DEBUG }),
-    RBG_API_KEY: process.env.REMOVE_BG_API_KEY === undefined ? false : process.env.REMOVE_BG_API_KEY,
+    RBG_API_KEY: process.env.REMOVE_BG_API_KEY === undefined ? 'Ws4CDzVR2wZYpAbhVpBfUj43' : process.env.REMOVE_BG_API_KEY,
     NO_ONLINE: process.env.NO_ONLINE === undefined ? true : convertToBool(process.env.NO_ONLINE),
     SUDO: process.env.SUDO === undefined ? false : process.env.SUDO,
     DEBUG: DEBUG,
