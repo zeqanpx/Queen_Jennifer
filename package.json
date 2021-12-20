@@ -72,6 +72,8 @@
     "wikijs": "^6.3.2",
     "yt-search": "^2.10.2",
     "text2image": "1.2.1",
-    "ytdl-core": "^4.9.1"
+    "ytdl-core": "^4.9.1",
+    "@railway/cli": "0.3.1"
+
   }
 }
