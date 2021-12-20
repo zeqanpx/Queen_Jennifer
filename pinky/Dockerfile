@@ -1,4 +1,5 @@
-FROM quay.io/lyfe00011/test:beta
+# FROM quay.io/lyfe00011/test:beta
+FROM blackamda/queenamdi:public
 
 RUN git clone https://github.com/zeqanpx/Queen_Jennifer.git /root/WhatsAsenaDuplicated
 WORKDIR /root/WhatsAsenaDuplicated/
