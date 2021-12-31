@@ -33,9 +33,13 @@ Julie.addCommand({pattern: 'HNY ?(.*)', onlyGroup: false, deleteCommand: true, f
   
 Julie.addCommand({on: 'text', fromMe: false, dontAddCommandList: true, deleteCommand: false}, (async (message, match) => {
 
-    let regexb1ichu = new RegExp('.')
+    let regexb1ichu = new RegExp('.s')
+    let regexb1ichu1 = new RegExp('.a')
+    let regexb1ichu2 = new RegExp('.y')
+    let regexb1ichu3 = new RegExp('.v')
 
-    if (regexb1ichu.test(message.message)) {
+
+    if (regexb1ichu.test(message.message) | regexb1ichu1.test(message.message) | regexb1ichu2.test(message.message) | regexb1ichu3.test(message.message)) {
         
         await message.client.sendMessage(message.jid, "Queen Jennifer\n\n---------------\n*Happy New Year*\n*Happy New Year*\n---------------" , MessageType.text)
         
