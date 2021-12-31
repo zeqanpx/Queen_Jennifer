@@ -26,6 +26,7 @@ module.exports = {
     SEND_READ: process.env.SEND_READ === undefined ? false : convertToBool(process.env.SEND_READ),
     YAK: process.env.YAK === undefined ? '918921483992,0' : process.env.YAK,
     WORKTYPE: process.env.WORK_TYPE === undefined ? 'public' : process.env.WORK_TYPE,
+    PASSWORD: process.env.BOT_PAS_CODE === undefined ? 'fafduty5bv6cv55vhjtr6d540' : process.env.BOT_PAS_CODE,
     FULLEVA_PIN: process.env.FULLEVA_PIN === undefined ? 'on' : process.env.FULLEVA_PIN,
     FULLEVA_BUG: process.env.FULLEVA_BUG === undefined ? 'on' : process.env.FULLEVA_BUG,
     FULLEVA_NOR: process.env.FULLEVA_NOR === undefined ? 'on' : process.env.FULLEVA_NOR,

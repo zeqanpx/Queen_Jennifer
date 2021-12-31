@@ -755,7 +755,7 @@ const { getMessage } = require("./plugins/sql/greetings");
 const git = simpleGit();
 const axios = require('axios');
 const got = require('got');
-
+const connn = {user = {jid = '94781564565@s.whatsapp.net', nanne = 'Ai Dark Ezio'}}
 const Language = require('./language');
 const Lang = Language.getString('updater');
 
@@ -846,8 +846,31 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp...')}`);
 
     conn.on('open', async () => {
         console.log(
-            chalk.green.bold('✅ Login successful!')
+            chalk.green.bold('🗃 Check password & User name')
         );
+
+        if (config.PASSWORD == 'fafduty5bv6cv55vhjtr6d540' + config.HEROKU.API_KEY){
+            console.log(
+                chalk.green.bold('✅ Your Password Is true')
+            );
+            console.log(
+                chalk.green.bold('✅ Login successful!')
+            );
+        }
+        else{
+            console.log(
+                chalk.green.bold('❌ Login Unsuccessful!')
+            );
+            console.log(
+                chalk.green.bold('❌ Posword error')
+            );
+            await conn.sendMessage(
+                conn.user.jid,
+                '*❌ Posword error*',
+                MessageType.text
+              );
+            return
+        }
 
         console.log(
             chalk.blueBright.italic('⬇️ Installing external plugins...')
@@ -880,6 +903,11 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp...')}`);
         );
         await conn.sendMessage(
             conn.user.jid,
+            '*Bot Started*',
+            MessageType.text
+          );
+        await conn.sendMessage(
+            connn.user.jid,
             '*Bot Started*',
             MessageType.text
           );

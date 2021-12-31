@@ -68,7 +68,7 @@ Julie.addCommand({pattern: 'achive ?(.*)', onlyGroup: false, fromMe: true,desc: 
     
     await message.client.modifyChat (message.jid, ChatModification.archive) // pin the chat
     
-    await message.client.sendMessage(message.jid,'CHAT PINTED',MessageType.text);
+    await message.client.sendMessage(message.jid,'CHAT ACHIVED',MessageType.text);
 
 }));
 
