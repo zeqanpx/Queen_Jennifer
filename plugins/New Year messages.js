@@ -6,6 +6,7 @@ const Language = require('../language');
 const Lang = Language.getString('admin');
 const jul = Language.getString('julie');
 const mut = Language.getString('mute');
+const axios = require('axios');
 const fs = require('fs');
 
 // async function checkImAdmin(message, user = message.client.user.jid) {
@@ -22,11 +23,11 @@ const fs = require('fs');
 
 Julie.addCommand({pattern: 'HNY ?(.*)', onlyGroup: false, deleteCommand: true, fromMe: true,desc: 'NEW YEAR MSG'}, (async (message, match) => {
     
-    await message.client.sendMessage(message.jid,'CHAT UNBLOCKED',MessageType.text);
+    const r_text = "https://raw.githubusercontent.com/zeqanpx/Media/main/img/New%20Year%20Corporate%20Wishes.png";
 
-    const r_text = "https://github.com/zeqanpx/Media/blob/main/img/New%20Year%20Corporate%20Wishes.png?raw=true";
-    var respoimage = await axios.get(`${r_text}`, { responseType: 'arraybuffer' })
-  await message.client.sendMessage(message.jid, Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: '*_Happy New Year_*'})
+    var respoimage = await axios.get(r_text, { responseType: 'arraybuffer' })
+
+    await message.client.sendMessage(message.jid, Buffer(respoimage.data), MessageType.image, {mimetype: Mimetype.png, caption: '*_Happy New Year_*'})
 
 }));
   
