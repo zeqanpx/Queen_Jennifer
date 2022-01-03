@@ -4,7 +4,7 @@ const chalk = require('chalk');
 
 console.log(chalk.green.bold('Loading ' + Config.LANG + ' language...🎀🎀'));
 console.log(chalk.red.bold('You entered an eny language. English language was chosen.'));
-var json = JSON.parse(fs.readFileSync('./DataBase/language/EN.json'));
+var json = JSON.parse(fs.readFileSync('./JS Object Notation/language/EN.json'));
 
 function getString(file) {
     return json['STRINGS'][file];
