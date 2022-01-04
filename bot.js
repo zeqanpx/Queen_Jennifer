@@ -931,62 +931,62 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp...')}`);
       }
         });
 
-        setInterval(async () => { 
-            var getGMTh = new Date().getHours()
-            var getGMTm = new Date().getMinutes()
-            var ansk = 'https://gist.githubusercontent.com/AiDarkEzio/dad1a6b2e94082b9b332783bbe2f340b/raw/87e0ff60121f2d11bbc0f04ade4fb9eb5619eed6/DAILY_ANNOUNCEMENTS.json';
+        // setInterval(async () => { 
+        //     var getGMTh = new Date().getHours()
+        //     var getGMTm = new Date().getMinutes()
+        //     var ansk = 'https://gist.githubusercontent.com/AiDarkEzio/dad1a6b2e94082b9b332783bbe2f340b/raw/87e0ff60121f2d11bbc0f04ade4fb9eb5619eed6/DAILY_ANNOUNCEMENTS.json';
                          
-            while (getGMTh == 6 && getGMTm == 01) {
-                const {data} = await axios(ansk)
-                const { sken, skml } = data
+        //     while (getGMTh == 6 && getGMTm == 01) {
+        //         const {data} = await axios(ansk)
+        //         const { sken, skml } = data
                           
-                var announce = ''
-                if (config.LANG == 'EN') announce = sken
-                if (config.LANG == 'ML') announce = skml
+        //         var announce = ''
+        //         if (config.LANG == 'EN') announce = sken
+        //         if (config.LANG == 'ML') announce = skml
                 
-                return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
-            }
-            while (getGMTh == 9 && getGMTm == 01) {
-                const {data} = await axios(ansk)
-                const { sken, skml } = data
+        //         return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
+        //     }
+        //     while (getGMTh == 9 && getGMTm == 01) {
+        //         const {data} = await axios(ansk)
+        //         const { sken, skml } = data
                           
-                var announce = ''
-                if (config.LANG == 'EN') announce = sken
-                if (config.LANG == 'ML') announce = skml
+        //         var announce = ''
+        //         if (config.LANG == 'EN') announce = sken
+        //         if (config.LANG == 'ML') announce = skml
                 
-                return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
-            }
-            while (getGMTh == 13 && getGMTm == 01) {
-                const {data} = await axios(ansk)
-                const { sken, skml } = data
+        //         return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
+        //     }
+        //     while (getGMTh == 13 && getGMTm == 01) {
+        //         const {data} = await axios(ansk)
+        //         const { sken, skml } = data
                             
-                var announce = ''
-                if (config.LANG == 'EN') announce = sken
-                if (config.LANG == 'ML') announce = skml
+        //         var announce = ''
+        //         if (config.LANG == 'EN') announce = sken
+        //         if (config.LANG == 'ML') announce = skml
                 
-                return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
-            }
-            while (getGMTh == 17 && getGMTm == 01) {
-                const {data} = await axios(ansk)
-                const { sken, skml } = data
+        //         return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
+        //     }
+        //     while (getGMTh == 17 && getGMTm == 01) {
+        //         const {data} = await axios(ansk)
+        //         const { sken, skml } = data
                       
-                var announce = ''
-                if (config.LANG == 'EN') announce = sken
-                if (config.LANG == 'ML') announce = skml
+        //         var announce = ''
+        //         if (config.LANG == 'EN') announce = sken
+        //         if (config.LANG == 'ML') announce = skml
                 
-                return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
-            }
-            while (getGMTh == 21 && getGMTm == 01) {
-                const {data} = await axios(ansk)
-                const { sken, skml } = data
+        //         return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
+        //     }
+        //     while (getGMTh == 21 && getGMTm == 01) {
+        //         const {data} = await axios(ansk)
+        //         const { sken, skml } = data
                           
-                var announce = ''
-                if (config.LANG == 'EN') announce = sken
-                if (config.LANG == 'ML') announce = skml
+        //         var announce = ''
+        //         if (config.LANG == 'EN') announce = sken
+        //         if (config.LANG == 'ML') announce = skml
                 
-                return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
-            }
-        }, 50000);
+        //         return await conn.sendMessage(conn.user.jid, '*[ DAILY ANNOUNCEMENTS ]*\n\n' + announce, MessageType.text);
+        //     }
+        // }, 50000);
 
     conn.on('chat-update', async m => {
         if (!m.hasNewMessage) return;
