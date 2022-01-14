@@ -13,7 +13,7 @@ const Config = require('../config');
 const Language = require('../language');
 const Lang = Language.getString('conventer');
 
-if (Config.WORKTYPE == 'private') {
+
 
     Julie.addCommand({pattern: 'pxmedia', fromMe: true, desc: Lang.XMEDİA_DESC}, (async (message, match) => {    
 
@@ -922,8 +922,8 @@ if (Config.WORKTYPE == 'private') {
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
-}
-else if (Config.WORKTYPE == 'public') {
+
+    if (Config.WORKTYPE == 'public') {
 
     Julie.addCommand({pattern: 'xmedia', fromMe: false, desc: Lang.XMEDİA_DESC}, (async (message, match) => {    
 
