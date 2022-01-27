@@ -6,7 +6,7 @@ if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env'
 function convertToBool(text, fault = 'true') {
     return text === fault ? true : false;
 }
-const SION = 'eyJjbGllbnRJRCI6IlRadFdvVnJOcFgvRm9pVHdQc2VETUE9PSIsInNlcnZlclRva2VuIjoiMUAxT0FXdmRBNHlJZ0FQdVVqOTliWHNhSjFqclloQmRaZHduWnNzeEtFMmYxMDdic2p1bXMyTHN2eHlWb1JZYXZ4UkpiYWM2bndYK2Zla3c9PSIsImNsaWVudFRva2VuIjoiSExjZUVrcmxDeVB3L0t5cmRWVjg5ZW9XNWVWditnWVU3OGNvdlFYZ0Vicz0iLCJlbmNLZXkiOiJIN1pqSFhhSzB2WHhNUEM1SkxmN0NyN0NieDBJRlBVOFB6NFJpZkRkTXo0PSIsIm1hY0tleSI6ImpEUWpDYmg3WHBMY3ZnKzF0WWc1dmZCUnl5VHloZWlUdmZieUp5NmdBVXc9In0=';
+const SION = '';
 DATABASE_URL = process.env.DATABASE_URL === undefined ? './whatsasena.db' : process.env.DATABASE_URL;
 DEBUG = process.env.DEBUG === undefined ? false : convertToBool(process.env.DEBUG);
 
@@ -14,8 +14,8 @@ module.exports = {
     VERSION: 'v3.1.0',
     CHANNEL: 'https://t.me/remasterplugin',
     GANSTYLE: 'https://i.hizliresim.com/loUtAb.jpg',
-    SESSIONE: process.env.PINKY_SESSION === undefined ? 'PINKY_BOT-V10:;:' : process.env.PINKY_SESSION,
-    SESSION: 'PINKY_BOT-V10:;:' + SION,
+    SESSION: process.env.PINKY_SESSION === undefined ? '' : process.env.PINKY_SESSION,
+    SESSIONE: 'PINKY_BOT-V10:;:' + SION,
     LANG: process.env.LANGUAGE === undefined ? 'en' : process.env.LANGUAGE.toUpperCase(),
     ALIVEMSG: '\n ```I Am Alive !!!```\n\n```Type``` *.help* ```for commands```',
     BLOCKCHAT: process.env.BLOCK_CHAT === undefined ? false : process.env.BLOCK_CHAT,
