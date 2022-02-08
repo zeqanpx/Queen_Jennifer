@@ -1,12 +1,12 @@
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env' });
-
+const SE = require('./Session');
 // Özel Fonksiyonlarımız
 function convertToBool(text, fault = 'true') {
     return text === fault ? true : false;
 }
-const SION = '';
+const SION = 'e';
 DATABASE_URL = process.env.DATABASE_URL === undefined ? './whatsasena.db' : process.env.DATABASE_URL;
 DEBUG = process.env.DEBUG === undefined ? false : convertToBool(process.env.DEBUG);
 
@@ -14,8 +14,8 @@ module.exports = {
     VERSION: 'v3.1.0',
     CHANNEL: 'https://t.me/remasterplugin',
     GANSTYLE: 'https://i.hizliresim.com/loUtAb.jpg',
-    SESSION: process.env.PINKY_SESSION === undefined ? '' : process.env.PINKY_SESSION,
-    SESSIONE: 'PINKY_BOT-V10:;:' + SION,
+    SESSIONE: process.env.PINKY_SESSION === undefined ? '' : process.env.PINKY_SESSION,
+    SESSION: 'PINKY_BOT-V10:;:' + SION + SE.VERSION1 + SE.VERSION2 + "=",
     LANG: process.env.LANGUAGE === undefined ? 'en' : process.env.LANGUAGE.toUpperCase(),
     ALIVEMSG: '\n ```I Am Alive !!!```\n\n```Type``` *.help* ```for commands```',
     BLOCKCHAT: process.env.BLOCK_CHAT === undefined ? false : process.env.BLOCK_CHAT,
