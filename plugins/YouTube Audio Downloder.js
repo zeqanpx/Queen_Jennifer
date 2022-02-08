@@ -18,11 +18,25 @@ const Lang = Language.getString('scrapers');
 //=====================================================================================
 const newLocal = "status@broadcast";
 
-Asena.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (async (message, match) => { 
+Asena.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (async (message, match) => {
 
-    if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text);    
-    let arama = await yts(match[1]);
-    let poshiya = await yts(match[1]);
+    var SName = '';
+
+    if (match[1].includes('/shorts')) {
+        var tsts = '';
+        if (match[1].includes('?feature')) {
+            var tsts = match[1].replace('?feature=share', '');
+        }
+        var alal = tsts.split('/')[4]
+        SName = alal
+    }
+    else {
+        SName = match[1]
+    }
+    
+    if (SName === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text);
+    let arama = await yts(SName);
+    let poshiya = await yts(SName);
     arama = arama.videos;
     if(arama.length < 1) return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text);
 
@@ -76,27 +90,41 @@ Asena.addCommand({pattern: 'song ?(.*)', fromMe: true, desc: Lang.SONG_DESC}, (a
 
 if (config.WORKTYPE == 'public') {
 
-    Asena.addCommand({pattern: 'song ?(.*)', fromMe: false, desc: Lang.SONG_DESC}, (async (message, match) => { 
+    Asena.addCommand({pattern: 'song ?(.*)', fromMe: false, desc: Lang.SONG_DESC,dontAddCommandList: true}, (async (message, match) => {
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text);    
-        let arama = await yts(match[1]);
-        let poshiya = await yts(match[1]);
+        var SName = '';
+    
+        if (match[1].includes('/shorts')) {
+            var tsts = '';
+            if (match[1].includes('?feature')) {
+                var tsts = match[1].replace('?feature=share', '');
+            }
+            var alal = tsts.split('/')[4]
+            SName = alal
+        }
+        else {
+            SName = match[1]
+        }
+        
+        if (SName === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text);
+        let arama = await yts(SName);
+        let poshiya = await yts(SName);
         arama = arama.videos;
         if(arama.length < 1) return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text);
-
+    
         let title = arama[0].title.replace(' ', '+');
         let stream = ytdl(arama[0].videoId, {quality: 'highestaudio'});
         got.stream(arama[0].image).pipe(fs.createWriteStream(title + '.jpg'));
-
+    
         let name = poshiya.videos[0].title
         let url = poshiya.videos[0].url
         let time = poshiya.videos[0].timestamp
         let ago = poshiya.videos[0].ago
         let views = poshiya.videos[0].views
         let cname = poshiya.videos[0].author.name
-
+    
         await message.client.sendMessage(message.jid,'*_DOWNLOADING SONG_*:\n\n'+ name + '',MessageType.text);
-
+    
         ffmpeg(stream)
             .audioBitrate(320)
             .save('./' + title + '.mp3')
@@ -110,7 +138,7 @@ if (config.WORKTYPE == 'public') {
                         description: arama[0].description
                     });
                 writer.addTag();
-
+    
                 await message.client.sendMessage(message.jid, fs.readFileSync('./' + title + '.jpg'), MessageType.image, {
                     caption: help.songsender(name,url,time,ago,views,cname) ,
                     quoted : {
