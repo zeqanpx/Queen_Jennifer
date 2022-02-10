@@ -11,7 +11,7 @@ const {MessageType, MessageOptions, Mimetype} = require('@adiwajshing/baileys');
 const axios = require('axios');
 const hrs = new Date().getHours({ timeZone: 'Asia/Colombo' })
 
-AiDarkEzio.addCommand({pattern: 'alive', fromMe: false, desc: 'It send alive msg'}, (async (message, match) => {
+AiDarkEzio.addCommand({pattern: 'alive', fromMe: true, desc: 'It send alive msg'}, (async (message, match) => {
 
     var time = new Date().toLocaleString('LK', { timeZone: 'Asia/Colombo' }).split(' ')[1]
 
@@ -128,7 +128,14 @@ AiDarkEzio.addCommand({pattern: 'alive', fromMe: false, desc: 'It send alive msg
 `
 
 let pp
-try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
-await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: caption, quoted: message.data }); });
+try { 
+    pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); 
+} catch {
+    pp = await message.client.getProfilePicture(); 
+}
+
+await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => {
+    await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: caption, quoted: message.data }); 
+});
 
 }));

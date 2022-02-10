@@ -1,4 +1,4 @@
-const AiDarkEzio= require('../events');
+const AiDarkEzio = require('../events');
 const {MessageType, MessageOptions, Mimetype} = require('@adiwajshing/baileys');
 
 
@@ -47,7 +47,7 @@ AiDarkEzio.addCommand({pattern: 'git', fromMe: false, desc: "*Gives Ouner Dtls*"
     ]
     const buttonMessage = {
         contentText: "Hi it's button message\nWhat Do U Think My Owner",
-        footerText: 'click the button',
+        footerText: 'Queen Jennifer © ᴘᴜʙʟɪᴄ ᴇᴅɪᴛɪᴏɴ',
         buttons: buttons,
         headerType: 1
     }
